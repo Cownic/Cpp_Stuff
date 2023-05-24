@@ -1,0 +1,8 @@
+usually the build stuff from running cmake will be store in a directory (/out/build) --> use command mkdir -p out/build
+to generate the cmake files, we type cmake -S <path to source> -B <path to build>
+then to run the makefile, we do a make in out/build
+
+To run at the top level CMake File
+cmake -S . -B out/build/
+make -C out/build/
+./out/build/TEST_1
