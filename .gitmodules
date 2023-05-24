@@ -1,0 +1,6 @@
+[submodule "Misc/cmakefilestuff/glfw"]
+	path = Misc/cmakefilestuff/glfw
+	url = https://github.com/glfw/glfw.git
+[submodule "Misc/cmakefilestuff/externalLib"]
+	path = Misc/cmakefilestuff/externalLib
+	url = https://github.com/glfw/glfw.git
