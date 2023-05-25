@@ -35,10 +35,9 @@ void display_mean(std::vector<int> list)
     std::cout << "Mean is " << list[size/2];
 }
 
-std::vector<int> add_number(std::vector<int> list , int number)
+void add_number(std::vector<int> *list , int number)
 {
-    list.push_back(number);
-    return list;
+    (*list).push_back(number);
 }
 
 void print_number(std::vector<int> list)
@@ -57,8 +56,11 @@ int main()
     char choice;
     int number;
     std::vector<int> list;
+    std::vector<int> *list_ptr{nullptr};
     print_menu();
     std::cin >> choice;
+
+    list_ptr = &list;
 
     while (choice != 'Q')
     {
@@ -70,7 +72,7 @@ int main()
         case 'A':
             std::cout << "Enter the number to add: ";
             std::cin >> number;
-            list = add_number(list , number);
+            add_number(list_ptr , number);
             break;
         case 'M':
             display_mean(list);
