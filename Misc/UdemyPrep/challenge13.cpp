@@ -7,7 +7,7 @@ class Movie
     private:
         std::string name;
         std::string movie_rating;
-        int watch_count = 0;
+        int watch_count;
         
     
     public:
@@ -24,7 +24,10 @@ class Movie
         int get_watch_count(){return this->watch_count;}
 
         //setters
-        void set_watch_count(int value){watch_count =  value;}
+        void set_watch_count(int value){
+            watch_count++;
+            std::cout << watch_count << std::endl;
+        }
         
         // functions
         bool check_if_exist(std::string movie_name)
@@ -67,7 +70,7 @@ bool check_dup(std::vector<Movie> m_list , std::string m_name)
     return false;
 }
 
-void increment(std::vector<Movie> m_list , std::string m_name)
+std::vector<Movie> increment(std::vector<Movie> m_list , std::string m_name)
 {
     for (Movie ms: m_list)
     {
@@ -77,6 +80,8 @@ void increment(std::vector<Movie> m_list , std::string m_name)
             std::cout << "Success" << std::endl;
         }
     }
+
+    return m_list;
 }
 
 void display_movies(std::vector<Movie> m_list)
@@ -122,7 +127,7 @@ int main()
 
             if (check_dup(Movies , m_name))
             {
-                increment(Movies , m_name);
+                Movies = increment(Movies , m_name);
             }
             else
             {
