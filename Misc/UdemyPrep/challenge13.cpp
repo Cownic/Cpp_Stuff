@@ -8,6 +8,7 @@ class Movie
         std::string name;
         std::string movie_rating;
         int watch_count = 0;
+        
     
     public:
         //constructors
@@ -23,7 +24,7 @@ class Movie
         int get_watch_count(){return this->watch_count;}
 
         //setters
-        void set_watch_count(){watch_count = 100;}
+        void set_watch_count(int value){watch_count =  value;}
         
         // functions
         bool check_if_exist(std::string movie_name)
@@ -56,7 +57,7 @@ void display_options()
 
 bool check_dup(std::vector<Movie> m_list , std::string m_name)
 {
-    for (auto ms : m_list)
+    for (Movie ms : m_list)
     {
         if (ms.get_name() == m_name)
         {
@@ -68,11 +69,11 @@ bool check_dup(std::vector<Movie> m_list , std::string m_name)
 
 void increment(std::vector<Movie> m_list , std::string m_name)
 {
-    for (auto ms: m_list)
+    for (Movie ms: m_list)
     {
         if (ms.get_name() == m_name)
         {
-            ms.set_watch_count();
+            ms.set_watch_count(2);
             std::cout << "Success" << std::endl;
         }
     }
