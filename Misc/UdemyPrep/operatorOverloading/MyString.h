@@ -1,5 +1,6 @@
 #ifndef _MYSTRING_H_
 #define _MYSTRING_H_
+#include <istream>
 
 class Mystring{
     private:
@@ -39,6 +40,9 @@ class Mystring{
         // friend Mystring operator+(const Mystring &lhs, const Mystring &rhs);
         // friend bool operator==(const Mystring &lhs, const Mystring &rhs);
 };
+
+std::ostream &operator<<(std::ostream &os, const Mystring &obj);
+std::istream &operator>>(std::istream &is, Mystring &obj);
 
 #endif
 
@@ -87,5 +91,12 @@ class Mystring{
 
     Binary Functions
     ReturnType operator<op>(Type &obj1, Type &obj2)
+*/
 
+/*
+    Overloading of Stream Insertion and Extraction Operators << / >>
+    doesnt make sense to implement as member methods:
+    - Left operand must be a user-defined class
+    - Not the way we normally use these operators, even though it will work
+    - Hence, we will overload these as non-member functions
 */

@@ -1,7 +1,5 @@
 #include <iostream>
 #include <string>
-
-#include <iostream>
 #include "MyString.h"
 
 using namespace std;
@@ -51,13 +49,32 @@ int main()
 
 
     // ==================BINARY OPERATOR <+> PART================
+    // Mystring larry{"Larry"};
+    // Mystring moe{"Moe"};
+    // Mystring stooges{" is one of the three stooges"};
+
+    // Mystring result = larry + stooges;
+    // result.display();
+    // ==================BINARY OPERATOR <+> PART================
+
+
+    // ==================STREAM INSERTION & EXTRACTION================
     Mystring larry{"Larry"};
     Mystring moe{"Moe"};
-    Mystring stooges{" is one of the three stooges"};
+    Mystring curly;
 
-    Mystring result = larry + stooges;
-    result.display();
-    // ==================BINARY OPERATOR <+> PART================
+
+    cout << "Enter the third stooge's name: " << endl;
+    cin >> curly;
+
+    cout << "The 3 stooges are " << larry << " " << moe << " " << curly;
+
+    cout << "Enter 3 names " << endl;
+    cin >> larry >> moe >> curly;
+
+    cout << "The 3 stooges are " << larry << " " << moe << " " << curly;
+
+    // ==================STREAM INSERTION & EXTRACTION================
 
     return 0;
 }

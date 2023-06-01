@@ -1,5 +1,6 @@
 #include <cstring>
 #include <iostream>
+#include <istream>
 #include "MyString.h"
 
 Mystring::Mystring(): str{nullptr}
@@ -143,28 +144,44 @@ void Mystring::display() const
 //     size_t size = std::strlen(obj.str) + 1;
 //     char *buff = new char[size];
 //     std::strcpy(buff, obj.str);
-
 //     for (int i = 0 ; i < size ; i++)
 //     {
 //         buff[i] = std::tolower(buff[i]);
 //     }
 //     Mystring temp{buff};
-
 //     delete [] buff;
 //     buff = nullptr;
 //     return temp;
 // }
 
 // Mystring operator+(const Mystring &lhs, const Mystring &rhs)
+// {
+//     size_t size = std::strlen(lhs.str) + std::strlen(rhs.str) + 1;
+//     char *buff = new char[size];
+//     std::strcpy(buff, lhs.str);
+//     std::strcat(buff, rhs.str);
+//     Mystring temp{buff};
+//     delete [] buff;
+//     buff = nullptr;
+//     return temp;
+// }
+
+// Overloading stream Insertion operator <<
+// output by reference to ostream so we can keep inserting or chain the operator
+ std::ostream &operator<<(std::ostream &os, const Mystring &obj)
 {
-    size_t size = std::strlen(lhs.str) + std::strlen(rhs.str) + 1;
-    char *buff = new char[size];
+    //os << obj.str; //if this is declared as a friend function
+    os << obj.get_str(); // allow me to output the string member straight to terminal
+    return os;
+}
 
-    std::strcpy(buff, lhs.str);
-    std::strcat(buff, rhs.str);
-
-    Mystring temp{buff};
+// Overloading stream extraction operator
+std::istream &operator>>(std::istream &is, Mystring &obj)
+{
+    char *buff = new char[1000]; // this limit is set by user
+    is >> buff;                  // read from the terminal input
+    obj = Mystring{buff};        // move semantic is required
     delete [] buff;
     buff = nullptr;
-    return temp;
+    return is;
 }
