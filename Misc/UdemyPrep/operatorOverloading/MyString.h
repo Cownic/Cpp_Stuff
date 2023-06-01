@@ -23,7 +23,11 @@ class Mystring{
 
         //Unary Operator Overloading
         // Adding const to the end of the function is so that we will not edit the current object we are working with
-        Mystring Mystring::operator-() const;
+        Mystring operator-() const;
+
+        // Binary Operator Overloading, have to take note on what we want to overload
+        bool operator==(const Mystring &rhs) const;
+        Mystring operator+(const Mystring &rhs) const; 
 
         // Adding const to the end of the funcion will make that "this" pointer is const-qualified
         void display() const;

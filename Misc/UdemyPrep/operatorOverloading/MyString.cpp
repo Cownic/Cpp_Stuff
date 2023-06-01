@@ -80,6 +80,41 @@ Mystring Mystring::operator-() const
     return temp;
 }
 
+// Binary Operator that is used to compare if the string in both objects are the same
+// Can be off different address
+bool Mystring::operator==(const Mystring &rhs) const
+{
+    // if they are the same object, string will be the same
+    if (this == &rhs)
+    {
+        return true;
+    }
+    if (std::strcmp(str , rhs.str) == 0)
+    {
+        return true;
+    }
+    return false;
+}
+
+// Use to concat the string together
+Mystring Mystring::operator+(const Mystring &rhs) const
+{
+    size_t size = std::strlen(str + 1) + std::strlen(rhs.str);
+
+    char *buff = new char[size];
+
+    std::strcpy(buff, str);
+    std::strcat(buff, rhs.str);
+
+    // Cos I am returning a Mystring objct
+    Mystring temp{buff};
+    delete [] buff;
+    return temp;
+
+}
+
+
+
 int Mystring::get_length() const
 {
     return std::strlen(str);
