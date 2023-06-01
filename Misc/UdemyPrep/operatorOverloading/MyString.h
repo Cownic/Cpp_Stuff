@@ -33,6 +33,11 @@ class Mystring{
         void display() const;
         int get_length() const;
         const char *get_str() const;
+
+        // Declaring a friend function here, so that it can directly access this class private members
+        // friend Mystring operator-(const Mystring &obj);
+        // friend Mystring operator+(const Mystring &lhs, const Mystring &rhs);
+        // friend bool operator==(const Mystring &lhs, const Mystring &rhs);
 };
 
 #endif
@@ -71,5 +76,16 @@ class Mystring{
 
     Binary Operators (+, -, ==, !=, <, > etc)
     ReturnType Type::operator<op>(const Type &rhs)
+*/
+
+
+/*
+    Operator Overloading as Global Functions --> often declared as friend to a class
+
+    Unary Functions
+    ReturnType operator<op>(Type &obj)
+
+    Binary Functions
+    ReturnType operator<op>(Type &obj1, Type &obj2)
 
 */

@@ -113,8 +113,6 @@ Mystring Mystring::operator+(const Mystring &rhs) const
 
 }
 
-
-
 int Mystring::get_length() const
 {
     return std::strlen(str);
@@ -128,4 +126,45 @@ const char *Mystring::get_str() const
 void Mystring::display() const
 {
     std::cout << str << get_length() <<std::endl;
+}
+
+//Friend functions
+// bool operator==(const Mystring &lhs, const Mystring &rhs)
+// {
+//     if (std::strcmp(lhs.str, rhs.str) == 0)
+//     {
+//         return true;
+//     }
+//     return false;
+// }
+
+// Mystring operator-(const Mystring &obj)
+// {
+//     size_t size = std::strlen(obj.str) + 1;
+//     char *buff = new char[size];
+//     std::strcpy(buff, obj.str);
+
+//     for (int i = 0 ; i < size ; i++)
+//     {
+//         buff[i] = std::tolower(buff[i]);
+//     }
+//     Mystring temp{buff};
+
+//     delete [] buff;
+//     buff = nullptr;
+//     return temp;
+// }
+
+// Mystring operator+(const Mystring &lhs, const Mystring &rhs)
+{
+    size_t size = std::strlen(lhs.str) + std::strlen(rhs.str) + 1;
+    char *buff = new char[size];
+
+    std::strcpy(buff, lhs.str);
+    std::strcat(buff, rhs.str);
+
+    Mystring temp{buff};
+    delete [] buff;
+    buff = nullptr;
+    return temp;
 }
