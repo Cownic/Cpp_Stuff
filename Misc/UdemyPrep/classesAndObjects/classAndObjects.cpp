@@ -99,7 +99,7 @@ class Account
         int &l_ref = x;
 
         void func(int &num) --> function requires a l-value as a input parameter
-        void func(int &&num) --> function requires a l-value as a input parameter
+        void func(int &&num) --> function requires a r-value as a input parameter
        */
 
       /*
