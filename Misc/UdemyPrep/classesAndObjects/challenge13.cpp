@@ -1,3 +1,8 @@
+/*
+    A class of Movie, containing name, movie rating, watch count
+    allow use to increment the watch count, create new movie objects
+    prevent duplicates in the movie vector list
+*/
 #include <iostream>
 #include <string>
 #include <vector>
