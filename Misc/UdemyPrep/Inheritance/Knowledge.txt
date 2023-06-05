@@ -5,4 +5,73 @@ What is Inheritance?
 - allow new classes to modify behaviors of exisiting classes to make it unique --> dont modify the original class
 
 Terminology & Notation
-- 
+- Inheritance : process of creating new class from exisitng class , reuse mechanism
+- Single Inheritance : new class created from another 'single' class
+- Multiple Inheritance: new class created from two or more other classes
+- "Is-A" relationship: public inheritance, derived classes are sub-types of their base classes
+- Generalisation: combine similar classes into a single, more general class based on common attributes
+- Specialisation: create new classes from exisiting classes proving more specialized attributes or operations
+- Inheritance/Class hierachies: Organisation of our inheritance relationship
+
+Inheritance vs Composition
+- Both allow reuse of exisiting classes
+- Public Inheritance: "is-a" relationship
+- Composition: "has-a" relationship
+
+Deriving Classes from Exisiting classes
+- class Base {};
+  class Derived: access-specifier Base{};
+- Access-specifier can be public, private(default) or protected
+
+Protected Members & Class Access
+- protected class member modifier: accessible from base class and drived classes, but not accessible by objects of base and derived classes
+- protected modifier works like private in terms of objects
+- Using protected modifier for inheritance: public & protected -> protected , private -> no access
+- Using private modifer: public & protected -> private, private -> no access
+- Using public modifer: public & protected -> public & protected, private -> no acesss
+
+Constructor & Class Initialisation
+- Derived class inherits from its base class
+- Base part of the derived class must be initialised before the derived class is initialised
+- when a derived object is created, based class constructor is executed before derived class constructor is executed
+
+
+Destructor
+- class destructir are invoked in the reverse order as constructor
+- derived part of the derived class must be destroyed before the base class destructor is invoked
+- each destructor should free resources allocated in it's own constructors
+
+A derived class does not inherit base class constructor, destructor, overloaded assignment operators, friend functions
+However, ot can invoke the base class version of constructors, destructors and overloaded assignment operators
+
+Passing Arguements to Base Class Constructor
+- class Base{
+    public:
+      Base();
+      Base(int);
+}
+- Derived::Derived(int x): Base(x), {optional initializers for Derived}{}
+
+Copy/Move Constructor and operator= with Derived Classes
+- not inherited from the base class
+- may not need to provide our own
+- can explcitly invoke base class versions from the derived classes
+- Copy Constructor: (done using silcing of the base class)
+  Derived::Derived(const Derived &other): Base(other), {Derived Initialization list}{
+    //code
+  }
+
+Redefining Base Class Methods
+- derived class can directly invoke Base Class Methods
+- derived class can override or redefine base class methods
+- powerful in the context of polymorphism
+
+
+Static binding of method calls
+- done at compile time
+- default binding for C++
+- e.g. Base *ptr = new Derived(); --> it will call the methods in Base as it sees a Base pointer in compile time
+
+
+The constexpr specifier declares that it is possible to evaluate the value of the function or variable at compile time. 
+Such variables and functions can then be used where only compile time constant expressions are allowed (provided that appropriate function arguments are given).
