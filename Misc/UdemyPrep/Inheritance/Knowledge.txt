@@ -1,1 +1,8 @@
-Inheritance Information
+What is Inheritance?
+- provides a method for creating new classes from exisiting classes
+- new class contain the data and behviors of the exisiting class
+- allow reuse of exisiting classes, focus on the common attributes among classes
+- allow new classes to modify behaviors of exisiting classes to make it unique --> dont modify the original class
+
+Terminology & Notation
+- 

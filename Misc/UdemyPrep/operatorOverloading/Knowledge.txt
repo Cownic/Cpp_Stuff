@@ -1,0 +1,54 @@
+/*
+    Default is memberwise assignment (shallow copy)
+    if we have raw pointer data member, we must do deep copy for them
+
+    overloading the copy assignment operator(deep copy)
+    Type &Type::operator=(const Type &rhs)
+    this will allow us to do S2 = S1 as S2.operator=(S1)
+
+*/
+
+/*
+    l-value : alot of time is on the left side of the equal sign
+    r-value : alot of time is on the right side of the equal side
+
+    int i = 10;
+
+    i : has a location in memory
+    10 : numeric literal, no memory associated with it until it is assigned to a l-value
+
+    int  a  = i;
+    assigning l-value to a l-value
+
+    int &a -> l-value reference
+    int &&a -> r-value reference
+
+    this is usually used to optimise code, we can steal resources straight from a temp.
+*/
+
+/*
+    Unary Operators (++, --, -, !)
+    ReturnType Type::operator<op>();
+
+    Binary Operators (+, -, ==, !=, <, > etc)
+    ReturnType Type::operator<op>(const Type &rhs)
+*/
+
+
+/*
+    Operator Overloading as Global Functions --> often declared as friend to a class
+
+    Unary Functions
+    ReturnType operator<op>(Type &obj)
+
+    Binary Functions
+    ReturnType operator<op>(Type &obj1, Type &obj2)
+*/
+
+/*
+    Overloading of Stream Insertion and Extraction Operators << / >>
+    doesnt make sense to implement as member methods:
+    - Left operand must be a user-defined class
+    - Not the way we normally use these operators, even though it will work
+    - Hence, we will overload these as non-member functions
+*/
