@@ -12,6 +12,8 @@ add_executable(${PROJECT_NAME} main.cpp)
 # Reference to the sub directory CMakeFile
 add_subdirectory(Adder)
 
+add_subdirectory(external/glfw)
+
 # when we include the header in our main program, there is no need for use to use the complete path
 target_include_directories(${PROJECT_NAME} PUBLIC Adder)
 
