@@ -17,7 +17,7 @@ Virtual Functions
 - Allow us to treat all objects generally as objects of the Base Class
 - In Base Class:
     Declare the function to override as virtual in the Base class
-    Virtual functions are cirtual all the way down the hierarchy
+    Virtual functions are virtual all the way down the hierarchy
     Dynamic polymorphism only via base class pointer/reference
 - In Derived Class:
     Override the function in the derived class
