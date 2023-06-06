@@ -1,3 +1,3 @@
-[submodule "Misc/cmakefilestuff/external/glfw"]
-	path = Misc/cmakefilestuff/external/glfw
+[submodule "cmakefilestuff/external/glfw"]
+	path = cmakefilestuff/external/glfw
 	url = https://github.com/glfw/glfw.git
