@@ -1,0 +1,71 @@
+What is polymorphism?
+- Fundamental to OOP
+- allows compile-time/run time binding
+- runtime polymorphism --> same function, different meanings
+- allow us to program more abstractly
+- achieve thru -> inheritance, base class pointer, virtual functions
+- Run-time polymorphism -> function over-riding
+- Compile-Time polymorphism -> operator-overloading, function overloading
+- By default, C++ does static binding
+
+Usig a Base Class Pointer
+- For dynamic polymorphism, we must have inheritance, base class pointer/ reference, virtual functions
+-  <Base> *ptr = new <Derived>();
+
+Virtual Functions
+- Virtual Functions are overridden, bound dynamically
+- Allow us to treat all objects generally as objects of the Base Class
+- In Base Class:
+    Declare the function to override as virtual in the Base class
+    Virtual functions are cirtual all the way down the hierarchy
+    Dynamic polymorphism only via base class pointer/reference
+- In Derived Class:
+    Override the function in the derived class
+    function signature and return type must match exactly
+    virtual keyword not required but is good practice
+    if dont provide overridden version, inherit from base class
+
+Virtual Destructors
+- Problems can ahppen when we destroy polymorphic objects
+- Derived Objects must be destryed in the correct order starting at the correct destructor
+- Allow us to delete correctly so that we do not get a memory leak
+- Solution:
+    if class has virtual functions, always provide a public virtual destructor instead of public destructor
+    if base class destructor is virtual, then all derived clkass destructors are also virtual
+
+Using the Override specifier
+- C++11 provides an override specifier to have the compiler ensure overriddng of the functions
+- virtual <type-return> <function_name>() override --> produces compiler error when the function signature are different 
+
+Using the Final specifier
+- When used at the class level -> prevents a class from being derived from
+- class <my_class> final : public <class>{};  / class <my_class> final{};
+- When used at the method level -> prevents virtual methods from being overridden in derived class
+- virtual <type-return> <function_name> final;
+
+Using Base Class References
+- Syntax:
+    Derived x;
+    Base &y = x;
+
+Pure Virtual Functions and Abstract Classes
+- Abstract Classes:
+    Cannot instantiate objects
+    These classes are used as base classes in inheritance hierarchies
+    Often referred to as Abstract Base Classes
+    Too generic to create objevts
+    serves as parent to Derived Classes that may have objects
+    contin at least one pure virtual function
+    can use pointers and references to dynamically refer to concrete classes derived from them
+
+Pure Virtual Functions
+- used to make a class abstract
+- specified with "=0" in its declaration --> void virtual func() =0;
+- typically do not provide implementations
+- derived classes must override the base class, else derived class will also be abstract
+
+
+Abstract Classes as Interfaces
+- abstract class is one which only has pure virtual functions
+- provided as public, each subclass must implement all the oure virtual functions accordingly
+- Interfaces is not provided in C++, we use abstract classes and pure virtual functions to achieve it
