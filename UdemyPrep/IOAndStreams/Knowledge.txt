@@ -1,0 +1,15 @@
+
+    Files, Stream and I/O
+    - uses streams as an interface between the program and I/O
+    - Independent of the actual device
+    - seqeunce of bytes
+    - Common header files used for IO:
+        iostream -> definations for formatted IO to/from stream
+        fstream -> definations for formatted IO to/from file streams
+        iomanip -> defination for manipulators used to format stream IO
+    - Commonly used stream classesL
+        ios -> basic support for formatted/unformatted IO operations
+        ifstream -> high-level input operations on file-based streams
+        ofstream -> high-level output operations on file-based streams
+        fstream -> provides high-level IO operations on file-based streams
+        stringstream -> provides high-level IO operations on memory-based strings
