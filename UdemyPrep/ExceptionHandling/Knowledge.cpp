@@ -88,6 +88,10 @@ int main()
     {
         std::cerr << "Negative Values not allowed" << std::endl;
     }
+    catch(...)
+    {
+        std::cerr << "All other errors" << std::endl;
+    }
 
     std::cout << "Program Continues" << std::endl;
     
