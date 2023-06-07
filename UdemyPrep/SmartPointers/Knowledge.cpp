@@ -57,6 +57,34 @@ int main()
     shared_ptr<int> ptr11 = make_shared<int>(100);
     auto ptr111 = make_shared<int>(1000);
 
+    /*
+        Weak Pointers - weak_ptr
+        - Provides a non-owning "weak" reference
+        - Points to an object of type T on the heap
+        - Does not participate in owning relationship
+        - Always created from a shared_ptr
+        - Does NOT increment or decrement reference use count
+
+        Uses of weak pointers
+        - shared strong ownership prevents heap deallocation
+        - weak pointer is used to solve the problem  --> make one of the pointer non-owning or 'weak'
+    */
+   weak_ptr<int> ptr222 = make_shared<int>(1000);
+
+
+   /*
+    Custom deleters
+    - Sometimes when we estroy a smart pointer, we need more than to just destory the object on the heap
+    - these are special use-cases
+    - Lots of ways to achieve it
+    - Using function method:
+        void my_deleter(Some_Class *raw pointer)
+        {
+            delete raw pointer;
+        }
+        shared_ptr<Some_Class> ptr {new Some_Class{} m my_deleter};
+   */
+
     return 0;
 }
 
