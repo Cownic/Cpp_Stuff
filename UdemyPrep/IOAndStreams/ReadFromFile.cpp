@@ -36,7 +36,7 @@ int main()
     // in_file.close();
 
     // Reading from a file using >>
-    //in_file >> x >> y >> z; -> take in line by line of text in textfile
+    //in_file >> x >> y >> z; -> take strings, seperated by space
 
     // Reading from a file using getline
     // std::string line{};
