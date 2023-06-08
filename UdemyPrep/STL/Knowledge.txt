@@ -1,0 +1,85 @@
+What is the STL?
+- Library of powerful, reusable, adaptable, generic classes and functions 
+- Implemented using C++ templates
+- Implement common data structures and algorithms
+
+Why use STL?
+- Assortment of commonly used containers
+- known time and size complexity
+- Reusable, Consistent, fast and type-safe
+- Extensible
+
+Elements of the STL
+- Containers:
+    collections of objects or primitive types
+    (array, vector, stack, etc)
+- Algorithms
+    functions for processing seqeunces of elements from containers
+    (find, max, count, sort etc)
+- Iterators
+    generate seqeunces of element from containers
+    (forward, reverse, by value etc)
+
+Types of Containers
+- Seqeunce Containers -> maintain the order of inserted elements
+    array,vectors,list,forward_list, deque
+- Associative containers -> no order at all
+    set, multi set, map, multi map
+- Container Adapters
+    stack,queue,priority queue
+
+Types of Iterators
+- Input Iterators -> from container to the program
+- Output Iterators -> from the program to the container
+- Forward Iterators -> navigate one item at a time in one direction
+- Bi-directional Iterators -> navigate one item at a time in both direction
+- Random Access Iterators -> directly access a container item
+
+Types of Algorithm
+- about 60 algorithms
+- split into modifying and non-modifying
+
+Generic Programming with Macros
+- #define
+- C++ preprocessor directives
+- No type information, simple substituition
+- Example:
+    #define MAX( a , b ) (( a > b ) ? a : b)
+- When we use macros, we should wrap up all our parameters with ()
+
+Generic Programming with Function Templates
+- Blueprint
+- Function and class templates
+- Allow plugging-in any data type
+- Compiler generates the appropriate functions/class from the Blueprint
+- generic programming or meta-programming
+- Example:
+    template <typename/class T>
+    T max(T a, T b){
+        return (a > b) ? a : b;
+    }
+
+    to use: max<typename>(a,b);
+            max(a,b);
+    - compiler can generate the appropriate function from the template and it happens at compile time
+    - must make sure that the type pass in must support the the > operator for it to work
+
+Generic Programming with Class Template
+- Examples:
+    template <typename T1, typename T2>
+    struct My_Pair {
+        T1 first;
+        T2 second;
+    }
+
+    template <typename T>
+    class item{
+        private:
+            T value
+            std::string name
+        public:
+            item(){};
+            item(T value, std::string name): value{value} , name{name};
+    };
+    to use it: item<typename> item1{a,b};
+- Template Classes are typically completely contained in header files, and there is no cpp files\
