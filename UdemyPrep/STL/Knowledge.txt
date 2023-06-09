@@ -83,4 +83,35 @@ Generic Programming with Class Template
             item(T value, std::string name): value{value} , name{name};
     };
     to use it: item<typename> item1{a,b};
-- Template Classes are typically completely contained in header files, and there is no cpp files\
+- Template Classes are typically completely contained in header files, and there is no cpp files
+
+Containers
+- Data Structure that store objects of almost any type
+- each container has member functions, some specific to container
+- each container has an associated header file, #include <container_type>
+
+What type of elements can we store in containers?
+- All primitives types are okay
+- Elements should be copyable and assignable (copy constructor/ copy assignment)
+- Moveable for efficiency (move constructor/ move assignment)
+- ordered associative containers must be able to compare elements (< , ==)
+
+Introduction to STL Iterators
+- Allows abstracting an arbitrary container as a seqeunce of Elements
+- They are objetcs that work like pointers by design
+- Most containers classses can be traversed with iterators
+- Declaring iterators: container_type::iterator_type iterator_name;
+                        std::vector<int>::iterator it1;
+                        std::map<std::string, std::string>::iterator it3;
+                        auto it = vec.begin();
+- .begin -> 1st element , .end -> location after last element
+- we can treat iterators like pointers and use it
+
+Introduction to STL Algorithms
+- Works on seqeunces of container element provided to them by an iterator
+- STL has many common and useful algorithms
+- Many algorithms require extra information in order to do their work: Functors, Function pointers, Lambda Expressions
+- #include <algorithm>
+- Different containers support different types of iterators
+- All STL algorithm expect iterators as arguements
+- when we are using algorithms with user-defined class, we need to provide the needed overloaded operator function for some of them to work
