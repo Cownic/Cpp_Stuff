@@ -72,11 +72,12 @@ Generic Programming with Class Template
         T2 second;
     }
 
-    template <typename T>
+    template <typename T, int N>
     class item{
         private:
             T value
             std::string name
+            int size{N};
         public:
             item(){};
             item(T value, std::string name): value{value} , name{name};
