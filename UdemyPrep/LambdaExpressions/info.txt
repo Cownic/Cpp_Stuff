@@ -4,3 +4,16 @@ Motivation
 - these short functions would be encapsulated in small classes to produce functions objects
 - many times the classes and functions are far removed from where they are used, leading to modification, maintenance and testing issues
 - Compiler cannot effectively inline these functions for efficiency
+
+Structure of a Lambda Expression
+- [] () -> return_type specifier {}
+- [] : capture list, defines the start of the lambda
+- () : parameter list, comma seperated list of parameters
+- -> return_type : return type, can be omitted and the compiler will try to deduce it
+- specifier : optional specifier, mutable and constexpr
+- {} : body, code that i want to execute
+- Simple Lambda example
+    [](){std::cout << "Hi;}()
+    create a function object and then calll the overloaded function call operator ()
+    auto l = [](){std::cout << "HI ";};
+    l(); // display hi
