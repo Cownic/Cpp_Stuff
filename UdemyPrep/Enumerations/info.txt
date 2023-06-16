@@ -1,0 +1,7 @@
+Motivations
+- A user-defined type that models a set of constant integral values
+
+Structure of an Enumeration
+- enum-key enum-name : enumerator-type {};
+- enum-key : defines the scope of the Enumeration
+- enum-name : optional
